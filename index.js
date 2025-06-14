@@ -36,6 +36,16 @@ const server = http.createServer((request, response) => {
                 response.writeHead(404, {'Content-Type': 'application/json'});
                 response.end(JSON.stringify({message: 'Grade not found'}));
             }
+        } else if (url.startsWith('/grades/') && method === 'DELETE') { 
+            const index = grades.findIndex((g) => g.id === id);
+            if (index !== -1) {
+                grades.splice(index, 1);
+                response.writeHead(204);
+                response.end();
+            } else {
+                response.writeHead(404, {'Content-Type': 'application/json'});
+                response.end(JSON.stringify({message: 'Grade not found'}));
+            }
         } else {
             response.writeHead(404, {'Content-Type': 'application/json'});
             response.end(JSON.stringify({message: 'Route not Found'}));
