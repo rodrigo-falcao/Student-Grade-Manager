@@ -7,14 +7,89 @@
 
 Student-Grade-Manager é uma API desenvolvida em Node.js com o objetivo de praticar conceitos de back-end e gerenciamento de dados acadêmicos. A aplicação permite cadastrar, consultar, atualizar e remover notas de alunos.
 
-## Funcionalidades
+## 📌 Funcionalidades
 
-- 📄 Listar notas dos alunos
+- **GET /grades**: Retorna todas as notas cadastradas.
+- **POST /grades**: Adiciona uma nova nota.
+- **PUT /grades/:id**: Atualiza uma nota existente pelo ID.
+- **DELETE /grades/:id**: Remove uma nota existente pelo ID.
 
-- ➕ Cadastrar novas notas
+## 🧭 Como executar
 
-- ✏️ Atualizar notas existentes
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-- ❌ Deletar notas
+2. Inicie o servidor:
+   ```bash
+   node index.js
+   ```
 
-- 🔍 Buscar nota por ID
+3. O servidor estará disponível em:
+   ```
+   http://localhost:3000/
+   ```
+
+## 📚 Exemplos de uso
+
+### **GET /grades**
+- **Descrição**: Retorna todas as notas cadastradas.
+- **Resposta**:
+  ```json
+  [
+      {
+          "id": "x",
+          "student": "David",
+          "subject": "Math",
+          "grade": "7"
+      }
+  ]
+  ```
+
+### **POST /grades**
+- **Descrição**: Adiciona uma nova nota.
+- **Corpo da requisição**:
+  ```json
+  {
+      "student": "David",
+      "subject": "Math",
+      "grade": "7"
+  }
+  ```
+- **Resposta**:
+  ```json
+  {
+      "id": "1",
+      "student": "David",
+      "subject": "Math",
+      "grade": "7"
+  }
+  ```
+
+### **PUT /grades/:id**
+- **Descrição**: Atualiza uma nota existente pelo ID.
+- **Corpo da requisição**:
+  ```json
+  {
+      "student": "John",
+      "subject": "Science",
+      "grade": "9"
+  }
+  ```
+- **Resposta**:
+  ```json
+  {
+      "id": "1",
+      "student": "John",
+      "subject": "Science",
+      "grade": "9"
+  }
+  ```
+
+### **DELETE /grades/:id**
+- **Descrição**: Remove uma nota existente pelo ID.
+- **Resposta**:
+  - Código de status: `204 No Content`
+
+🔹 Projeto criado para aprendizado e prática! 🚀 Sinta-se à vontade para contribuir ou sugerir melhorias. 😊
